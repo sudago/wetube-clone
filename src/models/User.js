@@ -3,8 +3,11 @@ import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
+  avatarUrl: String,
+  // github으로 계정을 만들었을 때는 password가 필요없음.
+  socialOnly: { type: Boolean, default: false },
   username: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
+  password: { type: String },
   name: { type: String, required: true },
   location: String,
 });
